@@ -31,7 +31,7 @@ namespace Geometry
 		static const int MAX_START_X = 1000;
 		static const int MAX_START_Y = 600;
 		static const int MIN_LINE_WIDTH = 1;
-		static const int MAX_LINE_WIDTH = 16;
+		static const int MAX_LINE_WIDTH = 32;
 		static const int MIN_SIZE = 32;
 		static const int MAX_SIZE = 512;
 
@@ -64,7 +64,7 @@ namespace Geometry
 		}
 		int filter_size(int size)const
 		{
-			return 
+			return
 				size < MIN_SIZE ? MIN_SIZE :
 				size > MAX_SIZE ? MAX_SIZE :
 				size;
@@ -287,7 +287,7 @@ namespace Geometry
 		{
 			return side * get_height() / 2;
 		}
-		double get_perimeter() const override
+		double get_perimeter()const override
 		{
 			return 3 * side;
 		}
@@ -303,9 +303,9 @@ namespace Geometry
 
 			const POINT vertices[] =
 			{
-				{start_x, start_y + get_height()},
-				{start_x + side, start_y + get_height()},
-				{start_x + side / 2, start_y}
+				{ start_x, start_y + get_height() },
+				{ start_x + side, start_y + get_height() },
+				{ start_x + side / 2, start_y }
 			};
 			::Polygon(hdc, vertices, 3);
 
@@ -330,15 +330,14 @@ void main()
 	cout << "\n-------------------------\n" << endl;*/
 	square.info();
 
-	Geometry::Rectangle rect(150, 100, 550, 100, 2, Geometry::Color::Orange);
+	Geometry::Rectangle rect(150, 100, 150, 100, 2, Geometry::Color::Orange);
 	rect.info();
 
 	Geometry::Circle circle(50, 800, 200, 1, Geometry::Color::Yellow);
 	circle.info();
 
-	Geometry::EquilateralTriangle e_triangle(50, 550, 350, 4, Geometry::Color::Green);
+	Geometry::EquilateralTriangle e_triangle(50, 550, 350, 48, Geometry::Color::Green);
 	e_triangle.info();
-
 
 	while (true)
 	{
